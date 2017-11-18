@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-// Import css
+// Import css, webpack handles all css loading
 import css from './styles/style.styl';
 // Import Components
 import Main from './components/Main';
@@ -12,4 +12,11 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 
 
-render(<main />, document.getElementById('root'));
+render(
+  <Router history={browserHistory}>
+    <Route path="/" component={Main}>
+      <IndexRoute component={PhotoGrid}></IndexRoute>
+      <Route path="/views/:postId" component={Single}></Route>
+    </Route>
+  </Router>
+, document.getElementById('root'));
