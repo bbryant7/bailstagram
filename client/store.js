@@ -15,4 +15,6 @@ const defaultstate = {
 
 export const store = createStore(rootReducer, defaultstate);
 
-export const history = syncHistoryWithStore(browserHistory, story)e
+export const history = syncHistoryWithStore(browserHistory, store);
+
+// export default store;
